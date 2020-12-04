@@ -1,8 +1,8 @@
 <?php
-include('config/login.php'); // Incluye archivo del login
+include('sistema/login.php'); // Incluye archivo del login
  
 if(isset($_SESSION['active'])){ // Valida si ya hay una sesion iniciada
-header("location: principal.php");
+header("location: ./principal.php");
 }
 ?>
 <!DOCTYPE HTML>
