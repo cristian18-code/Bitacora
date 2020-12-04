@@ -4,7 +4,7 @@
     $error=''; // Variable para almacenar el mensaje de error
     if (isset($_POST['submit'])) {
         if (empty($_POST['username']) || empty($_POST['password'])) {
-            $error = "Por favor digite su usuario y contraseña";
+            $error = "Por favor ingrese su usuario y contraseña";
         }
         else
         {
@@ -19,12 +19,13 @@
             $username    = mysqli_real_escape_string($con,(strip_tags($username,ENT_QUOTES)));
             $password =  sha1($password);//Algoritmo de encriptacion de la contraseña http://php.net/manual/es/function.sha1.php
             
-            $sql = "SELECT email, password FROM login WHERE email = '" . $username . "' and password='".$password."';";
+            $sql = "SELECT username, password FROM login WHERE username = '" . $username . "' and password='".$password."';";
             $query=mysqli_query($con,$sql);
             $counter=mysqli_num_rows($query);
             if ($counter==1){
-                    $_SESSION['login_user_sys']=$username; // Iniciando la sesion
-                    header("location: ./principal.php"); // Redireccionando a la pagina profile.php
+                $_SESSION['active'] = true;
+                $_SESSION['username']=$username; // Iniciando la sesion
+                header("location: ./principal.php"); // Redireccionando a la pagina profile.php
                 
                 
             } else {

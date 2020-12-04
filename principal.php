@@ -23,7 +23,7 @@
 		<div class="login-main wthree">
 			<div class="login">
 			<h3>Bienvenid@ al sistema  <i><?php echo $login_session; ?></i></h3>
-			
+
 			<div class="clear"> </div>
 				<h4><a href="config/logout.php"> Cerrar sesión</a></h4>
 			</div>

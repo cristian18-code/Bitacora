@@ -1,7 +1,7 @@
 <?php
 include('config/login.php'); // Incluye archivo del login
  
-if(isset($_SESSION['login_usuario'])){ // Valida si ya hay una sesion iniciada
+if(isset($_SESSION['active'])){ // Valida si ya hay una sesion iniciada
 header("location: principal.php");
 }
 ?>
@@ -28,7 +28,7 @@ header("location: principal.php");
 			<div class="login">
 			<h3>Iniciar sesión</h3>
 			<form action="#" method="post">
-				<input type="text" placeholder="Correo electrónico" required="" name="username" required>
+				<input type="text" placeholder="Usuario" required="" name="username" required>
 				<input type="password" placeholder="Contraseña" name="password" required>
 				<input name="submit" type="submit" value="Ingresar">
 			</form>

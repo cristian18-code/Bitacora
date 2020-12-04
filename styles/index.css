@@ -15,7 +15,7 @@ table{border-collapse:collapse;border-spacing:0;}
 body{
 padding:0;
 margin:0;
-    background:#072b70;  
+    background:#001a42;  
     background-size: cover;
    font-family: 'Signika', sans-serif;
 }
@@ -131,6 +131,7 @@ h1 {
     font-size: 1em;
     color: #fff;
     background: #007bff;
+    border-color: #007bff;
     border: none;
     width: 94%;
     display: block;
@@ -147,6 +148,7 @@ h1 {
 }
 .login-main input[type="submit"]:hover{
     background: #0069d6;
+    border-color: #0062cc;
     transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
