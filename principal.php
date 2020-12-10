@@ -18,7 +18,13 @@
 <body>
 <!--header Inicia Aqui-->
 <?php include 'sistema/header.php';?>
+<!--header Termina Aqui-->	
+
+<!--Section Inicia Aqui-->
+<section>
 	
+</section>
+<!--Section Termina Aqui-->
 
 </body>
 </html>
