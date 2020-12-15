@@ -126,23 +126,17 @@ a span.icon-gravatar{
     display: -o-flex;
     margin-left: 30px;
 }
-nav ul{
+nav ul, nav ol{
 	background: #1a417a;
-	list-style: none;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	justify-content: left;
-	align-items: center;
+	list-style:none;
 }
-nav ul > li a{
-	position: relative;
+
+nav > li {
+	float:left;
 }
-nav a{
+
+ul li a{
 	color: #FFF;
-	display: block;
 	font-size: 10pt;
 	font-family: 'GothamBook';
 	padding: 15px 30px;
@@ -150,34 +144,42 @@ nav a{
 	letter-spacing: 2px;
 	transition: background .5s;
 	border-right: 1px solid white;
+	text-decoration:none;
+	display:block;
 }
-nav a:hover{
+ul a:hover{
 	background: rgba(8, 199, 40, 0.11);
 	color: white;
 	text-decoration: none;
 }
-nav ul li:hover ul{
-	display: block;
+nav li:hover > ul {
+	display:block;
 }
+
 nav li ul{
 	background: #1a417a;
 	display: none;
-	flex-direction: column;
-	position: absolute;
-	align-items: flex-start;
-	border-radius: 0 0 10px 10px;
+	position:absolute;
+	min-width:140px;
+	border-radius: 0 10px 10px 10px;
+}
+
+nav li ul li {
+	position:relative;
+}
+
+nav ul li ul li ul{
+	background-color: rgb(53, 99, 160);
+	right:-150px;
+	top: 0;
 }
 nav li ul a{
-	position: relative;
 	padding: 10px 30px;
 	border-right: initial;
 }
+
 nav li ul a:hover{
 	background: rgba(8, 199, 40, 0.11);
-}
-nav li ul li:last-child{
-	border-radius: 0 0 10px 10px;
-	overflow: hidden;
 }
 #container{
 	padding: 100px 15px 15px;
