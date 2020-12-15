@@ -9,7 +9,12 @@
         <li><a href="registro_u.php"> <span class="icon-user-plus"> </span> Reportar</a></li>
         <li><a href="listado.php">  <span class="icon-clipboard"> </span> Seguimiento </a></li>
         <li><a href="listado.php">  <span class="icon-clipboard"> </span> Informes </a></li>
-        <li><a href="listado.php">  <span class="icon-clipboard"> </span> Permisos </a></li>
+        <li><a href="listado.php">  <span class="icon-clipboard"> </span> Usuarios </a>
+          <ul>
+            <li><a href="listado.php">  <span class="icon-clipboard"> </span> Crear usuario </a>
+            <li><a href="listado.php">  <span class="icon-clipboard"> </span> Lista de usuarios </a>
+          </ul>
+      </li>
       </ul>
       <li><a href="#"> <span class="icon-user-tie"> </span> Orientacion al usuario </a>
         <ul>

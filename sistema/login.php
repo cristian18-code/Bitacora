@@ -19,7 +19,7 @@
             $username    = mysqli_real_escape_string($con,(strip_tags($username,ENT_QUOTES)));
             $password =  sha1($password);//Algoritmo de encriptacion de la contraseña http://php.net/manual/es/function.sha1.php
             
-            $sql = "SELECT username, password FROM login WHERE username = '" . $username . "' and password='".$password."';";
+            $sql = "SELECT username, password FROM usuarios WHERE username = '" . $username . "' and password='".$password."';";
             $query=mysqli_query($con,$sql);
             $counter=mysqli_num_rows($query);
             if ($counter==1){

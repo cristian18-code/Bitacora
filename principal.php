@@ -13,6 +13,7 @@
 <!-- Scripts -->
 <script src="sistema/js/libs/jquery-3.5.1.min.js"></script>
 <!-- Scripts -->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <!--Fuentes de google-->
