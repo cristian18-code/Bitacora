@@ -10,9 +10,9 @@ header("location: ./principal.php");
 <head>
 <title>Bitacora - Formulario de inicio de sesión</title>
 <!-- Estilos css -->
-<link href="styles/index.css" rel="stylesheet" type="text/css"/>
+<link href="media/styles/index.css" rel="stylesheet" type="text/css"/>
 <!-- Estilos css -->
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="media/images/favicon.png" type="image/x-icon">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <!--Fuentes de google-->

@@ -164,12 +164,16 @@ nav li ul{
 	border-radius: 0 10px 10px 10px;
 }
 
+nav ul li span {
+	font-size: 18px;
+}
+
 nav li ul li {
 	position:relative;
 }
 
 nav ul li ul li ul{
-	right:-200px;
+	right:-190px;
 	top: 0;
 }
 nav li ul a{
