@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 body{
-	background: #ededed;
+	background: #eee8e8;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'arial';
@@ -63,6 +63,7 @@ span {
     left:5;
 	width: 45px;
 }
+
 header h1{
 	margin-left:55px;
 }

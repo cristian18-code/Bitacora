@@ -1,5 +1,4 @@
 <!--Navbar -->
-<nav>
 <ul class="nav justify-content-center">
   <li><a href="#"> <span class="icon-home3"></span> Inicio</a></li>
 
@@ -23,5 +22,4 @@
       </ul>
     </li>
   </ul>
-</nav>
 <!--/.Navbar -->

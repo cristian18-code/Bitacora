@@ -1,0 +1,165 @@
+.container-all{
+    max-width: 1500px;
+    margin: 10px auto;
+  }
+    .container-box{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    }
+    .container-box a{
+    text-decoration: none;
+    color: black;
+}
+  .box{
+    width: 350px;
+    height: 180px;
+    padding: 10px;
+    margin: 40px;
+    background: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 900ms;
+  }
+
+  .box:hover{
+    transform: translate(5px, -5px);
+    box-shadow: -10px 10px 20px -10px rgba(0,0,0, 0.5);
+  }
+  .box .icon,
+  .box h4,
+  .box p{
+    position: relative;
+    z-index: 1;
+    transition: all 300ms;
+  }
+   
+  .box .icon{
+  
+    width: 60px;
+    transform: translateY(30px);
+   }
+  .box:hover .icon{
+    width: 30px;
+    transform: translateY(0px);
+  
+  }
+  .box h4,
+  .box p{
+  margin-top: 10px;
+  }
+  
+  .box h4{
+    font-size: 30px;
+    transform: translateY(30px);
+  }
+  .box:hover h4{
+    transform: translateY(0px);
+    color: white;
+  
+  
+  }
+  .box p{
+    font-size: 14px;
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  .box:hover p{
+    transform: translateY(0);
+    opacity: 1;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .box .background-hover{
+    width: 550px;
+    height: 550px;
+    position: absolute;
+    top: 250px;
+    left: -100px;
+    background: red;
+    border-radius: 100%;
+    transition:all 900ms;
+    background: linear-gradient(to bottom, rgb(255,115,0), rgb(255,148,48));
+  
+  }
+  .box:hover .background-hover{
+    width:450px;
+    height: 450px;
+    top: -70px;
+    left: -70px;
+  
+  }
+  /*Identificador de Colores de las 6 cajas*/
+  /*Box1*/
+  .box1 .background-hover{
+      background: linear-gradient(to bottom, rgb(223, 52, 52 ), rgb(223, 72, 82 ));
+      top: -490px;
+      left: -490px;
+  
+  }
+  .box1 .icon{
+  
+    width: 80px;
+    transform: translateY(30px);
+   }
+  
+  .box2 .background-hover{
+      
+      top: -550px;
+      left: -250px;
+  
+  }
+  .box2 .icon{
+  
+    width: 75px;
+    transform: translateY(30px);
+   }
+  
+  .box3 .background-hover{
+      background: linear-gradient(to bottom, rgb(86, 44, 126), rgb(85, 28, 85) );
+      top: 600px;
+      left: 170px;
+  
+  }
+  .box3 .icon{
+  
+    width: 75px;
+    transform: translateY(30px);
+   }
+  .box4 .background-hover{
+      background: linear-gradient(to bottom, rgb(21, 199, 247 ), rgb(21, 229, 298));
+      top: -560px;
+      left: -130px;
+  
+  }
+  .box4 .icon{
+  
+    width: 75px;
+    transform: translateY(30px);
+   }
+  .box5 .background-hover{
+      background: linear-gradient(to bottom, rgba(8, 214, 36, 0.877), rgb(19, 201, 19));
+      top: 570px;
+      left: -170px;
+  
+  }
+  .box5 .icon{
+  
+    width: 65px;
+    transform: translateY(30px);
+   }
+  .box6 .background-hover{
+      background: linear-gradient(to bottom, rgb(47, 98, 214 ), rgb(47, 128, 314 ));
+      top: -200px;
+      left: -700px;
+  
+  }
+  .box6 .icon{
+  
+    width: 68px;
+    transform: translateY(30px);
+   }

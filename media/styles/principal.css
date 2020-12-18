@@ -4,8 +4,9 @@ body {
     margin: 0 auto !important;
     min-height: 100vh;
     display: grid !important;
+    background-color: #f8f7f7;
     grid-template-columns: 100%;
-    grid-template-rows: 100px 
+    grid-template-rows: 110px 
                         1fr
                         60px;
     grid-template-areas:"my-header my-header my-header"
@@ -22,29 +23,27 @@ header {
 section {
     grid-area: my-section;
     grid-column: 1/2;
-    display: flex !important;
-    align-items: center;
     margin: 0 auto;
 }
 section div#contenedor {
     border-radius: 20px;
-    -webkit-box-shadow: 5px 5px 5px rgb(3, 21, 43);
-    -moz-box-shadow: 5px 5px 5px rgb(2, 28, 49);
-    background: #446699;
     display: flex !important;
     align-items: center;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    height: 300px;
-    width: 800px;
-}
-section div#contenedor .bienvenida {
-    margin: 0 auto;
-    font-size: 25px;
-}
-section div#contenedor .tickets {
     text-align: center;
-    font-size: 18px;
+    color: #000000;
+    border: 1px solid #0541af;
+    margin: 0 auto;
+    position: relative;
+    top: 10px;
+    width: 800px;
+    padding: 10px;
+}
+section div#contenedor .bienvenida, section div#contenedor .bienvenida p  {
+    margin: 0 auto;
+    margin-top: 5px;
+    font-size: 22px;
+    font-family: 'revert';
+    margin-bottom: 5px;
 }
 footer {
     grid-area: my-footer;
