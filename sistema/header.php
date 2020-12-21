@@ -6,27 +6,13 @@
 				$rol = 'Administrador';
 				break;
 			case 2: 
-				$rol = 'Supervisor - Pro';
-				break;
-			case 3:
 				$rol = 'Supervisor';
-				break;
-			case 4: 
-				$rol = 'OMT - Terapias';
-				break;
-			case 5:
-				$rol = 'SMD - Prefiltro';
-				break;
-			case 6: 
-				$rol = 'Prefiltro';
-				break;
-			case 7:
-				$rol = 'SMD';
 				break;
 		}
 ?>
 	<div class="header">
 		<img src="./media/images/soporte-tecnico.png" class="logo" width="40px"><h1>Soporte tecnico - Contact Center</h1>
+		<img src="./media/images/logo_header.png" alt="medplus MP" width="140px">
 		<div class="optionsBar">
 			<span class="user"><?php echo $rol ?></span>
 			<span>|</span>

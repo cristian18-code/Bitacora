@@ -189,3 +189,47 @@ nav li ul a:hover{
 	padding: 100px 15px 15px;
 }
 /*****************************************************************/
+/* barra del scroll*/
+*::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+*::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+*::-webkit-scrollbar-button:increment,body::-webkit-scrollbar-button {
+    display: none;
+} 
+
+*::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background:  rgba(0, 6, 87, 0.856);
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+@media (min-width: 860px) and (max-width: 960px) {
+
+    body {
+		grid-template-rows: 190px 
+							1fr
+							60px !important;
+	}
+}
+
+@media screen and (max-width: 860px) {
+
+    body {
+		grid-template-rows: 220px 
+							1fr
+							60px !important;
+	}
+}
