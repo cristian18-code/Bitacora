@@ -2,7 +2,7 @@
     include('config/session.php');
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="es">
 <head>
 <title>Página de Inicio - Bitacora</title>
 <!-- Estilos css -->
@@ -21,6 +21,7 @@
 <!--Fuentes de google-->
 <link href='//fonts.googleapis.com/css?family=Signika:400,600' rel='stylesheet' type='text/css'>
 <!--Fuentes de google-->
+
 </head>
 <body>
 <!--header Inicia Aqui-->
@@ -90,7 +91,7 @@
 
         </div> 
 
-        <a href="Tabla_terapia.php">
+        <a href="crear_usuario.php">
 
         <div class="box box4">
 
