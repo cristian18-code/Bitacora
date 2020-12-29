@@ -1,7 +1,7 @@
 <?php
 
-    require('./config/db.php');//Contienen las variables, el servidor, usuario, contraseña y nombre  de la base de datos
-    require('./config/conexion.php');//Contiene de conexion a la base de datos
+    require('../../config/db.php');//Contienen las variables, el servidor, usuario, contraseña y nombre  de la base de datos
+    require('../../config/conexion.php');//Contiene de conexion a la base de datos
 
     header("Content-Type: text/html;charset=utf-8"); // cotejamiento de php
 
@@ -13,10 +13,6 @@
         case 'mostrarIncidencia':
             mostrarIncidencia($con);
             break;
-        
-        default:
-            # code...
-            break;
     }
 
     function mostrarIncidencia($conexion) {
@@ -25,11 +21,20 @@
 
         // Consulta pra traer los datos del medico seleccionado
         $incidenciaSsql =  "SELECT tipificaciones.id_tipificacion, 
-                                     tipificaciones.nombre_tip
-                                     ificacion
-                                    FROM tipificaciones WHERE grupo_agenda = '".$valor."'";
+                                     tipificaciones.nombre_tipificacion
+                                    FROM tipificaciones WHERE grupo_tipificacion = '".$valor."'";
         
-        $incidenciaQsql = $conexion -> query($incidenciaSsql);
+        $incidenciaQsql = $conexion->query($incidenciaSsql) or die("Error en la consulta");
+
+        if ($incidenciaQsql->num_rows > 0) {
+            $data = "";
+            foreach ($incidenciaQsql as $row) {
+
+                $data .= '<option value="'.$row['id_tipificacion'].'">'.$row['nombre_tipificacion'].'</option>\n';
+            }
+
+            echo $data;
+        }
     }
 
 ?>
