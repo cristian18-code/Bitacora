@@ -4,7 +4,7 @@
 
   <li class="principal"> <a href="#"> <span class="icon-user-tie"></span> Administrador </a>
     <ul>
-      <li><a href="registro_u.php"> <span class="icon-wrench"> </span> Reportar </a></li>
+      <li><a href="./reportar_incidencia.php"> <span class="icon-wrench"> </span> Reportar </a></li>
       <li><a href="listado.php">  <span class="icon-eye"> </span> Seguimiento </a></li>
       <li><a href="listado.php">  <span class="icon-paste"> </span> Informes </a></li>
       <li><a href="listado.php">  <span class="icon-users"> </span> Usuarios &nbsp;&nbsp; <span style="font-size: 14px;" class="icon-circle-right"></span> </a>

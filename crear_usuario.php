@@ -53,13 +53,13 @@
 </head>
 <body>
     <header>
-    <?php 
-        include 'sistema/header.php';
-    ?>
-        <nav>
-        <?php
-            include 'sistema/nav.php';
+        <?php 
+            include 'sistema/header.php';
         ?>
+            <nav>
+                <?php
+                    include 'sistema/nav.php';
+                ?>
         </nav>
     </header>
 

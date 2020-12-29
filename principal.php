@@ -14,6 +14,7 @@
 <!-- Estilos css -->
 <!-- Scripts -->
 <script src="sistema/js/libs/jquery-3.5.1.min.js"></script>
+<script src="sistema/js/getTime.js"></script>
 <!-- Scripts -->
 <link rel="shortcut icon" href="media/images/favicon.png" type="image/x-icon">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -43,7 +44,7 @@
 
         <div class="container-box">
 
-            <a href="crear_registro.php" target="_top">
+            <a href="reportar_incidencia.php" target="_top">
 
             <div class="box box1">
 
