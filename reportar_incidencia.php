@@ -2,9 +2,18 @@
     include('config/session.php');
     include('config/conexion.php');
 
-    if ($_SESSION['rol'] != 1 || $_SESSION['rol'] != 2) {
-        
+    if ($_SESSION['rol'] != 1 && $_SESSION['rol'] != 2) {
+        header("location: principal.php");
     }
+
+    /* Trae el ultimo registro creado */
+    $traerDatos = "SELECT max(id_ticket) FROM tickets";
+    $ver = $con->query($traerDatos) or die ("No se obtuvieron datos en la consulta");
+
+    if ($row = mysqli_fetch_row($ver)) {
+        $id = $row[0];
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -42,80 +51,106 @@
     <div id="formulario_reportar">        
         <h1>Solicitudes Soporte Contact</h1>
         <hr>
-
-            <input type="text" name="id" id="id" readonly value="N° Ticket: <?php  echo (1 + 1)  ?>"> <!-- Muestra el numero del registro a crear -->
+        <div class="alerta"></div>
+            <input type="text" name="id" id="id" readonly value="Ticket N° <?php echo ($id+1); ?>"> <!-- Muestra el numero del registro a crear -->
             <br>
-            <div id="encabezado" class="form-group">
-                <input type="text" name="dia" id="dia" value="" readonly> <!-- Muestra el dia actual -->
-                <img src="media/images/mantenimiento.png" alt="anadir" width="80px">
-                <input type="text" name="hora" id="hora" value="" readonly> <!-- Muestra la hora actual en tiempo real -->
-            </div>
-            <form action="" method="post" id="formulario">
-
-                <div id="cont-area" class="form-group">
-                    <label for="area">Area</label>
-                    <select name="area" id="area" class="form-control">
-                        <option value="" hidden>Selecciona una opcion</option>
-                    <!-- consulta traer datos de la base -->
-                    <?php $areaSsql = "SELECT id_tipificacion, nombre_tipificacion FROM tipificaciones WHERE grupo_tipificacion = 'area'";
-                            $areaQsql = $con -> query($areaSsql);
-                    ?>
-                    <!-- ciclo para mostrar las areas -->
-                    <?php foreach ($areaQsql as $row) { ?>
-                    
-                        <option value="<?php echo $row['id_tipificacion']; ?>"> <?php echo $row['nombre_tipificacion']; ?></option>
-                    
-                    <?php } ?>                        
-                    </select>
+            <form action="sistema/logica/registrarTicket.php" onsubmit="" method="post" name="formTicket" id="formTicket">
+                <div id="encabezado" class="form-group">
+                    <input type="text" name="dia" id="dia" value="" readonly> <!-- Muestra el dia actual -->
+                    <img src="media/images/mantenimiento.png" alt="anadir" width="80px">
+                    <input type="text" name="hora" id="hora" value="" readonly> <!-- Muestra la hora actual en tiempo real -->
+                    <input type="hidden" name="user" id="user" value="<?php echo $_SESSION['idUser']; ?>">
                 </div>
 
-                <div class="form-group" id="cont-tipo_reporte">
-                    <label for="tipo_reporte">Tipo De Reporte</label>
-                    <select name="tipo_reporte" id="tipo_reporte" class="form-control" onchange="mostrarIncidencia(this)" >
-                        <option value="" hidden>Selecciona una opcion</option>
-                    <!-- consulta traer datos de la base -->
-                    <?php $areaSsql = "SELECT id_tipificacion, nombre_tipificacion FROM tipificaciones WHERE grupo_tipificacion = 'reporte'";
-                            $areaQsql = $con -> query($areaSsql);
-                    ?>
-                    <!-- ciclo para mostrar las areas -->
-                    <?php foreach ($areaQsql as $row) { ?>
-                    
-                        <option value="<?php echo $row['nombre_tipificacion']; ?>"> <?php echo $row['nombre_tipificacion']; ?></option>
-                    
-                    <?php } ?>
-                    </select>
+                <div id="cont-area" class="form-group row">
+                    <label for="area" class="col-sm-4 col-form-label">Area solicitante</label>
+                    <div class="col-sm-8">
+                        <select name="area" id="area" class="form-control" required>
+                            <option value="" hidden>Selecciona una opcion</option>
+                        <!-- consulta traer datos de la base -->
+                        <?php $areaSsql = "SELECT id_tipificacion, nombre_tipificacion FROM tipificaciones WHERE grupo_tipificacion = 'area'";
+                                $areaQsql = $con -> query($areaSsql);
+                        ?>
+                        <!-- ciclo para mostrar las areas -->
+                        <?php foreach ($areaQsql as $row) { ?>
+                        
+                            <option value="<?php echo $row['id_tipificacion']; ?>"> <?php echo $row['nombre_tipificacion']; ?></option>
+                        
+                        <?php } ?>                        
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row" id="cont-tipo_reporte">
+                    <label for="tipo_reporte" class="col-sm-4 col-form-label">Tipo de reporte</label>
+                    <div class="col-sm-8">
+                        <select name="tipo_reporte" id="tipo_reporte" class="form-control" onchange="mostrarIncidencia(this)" required>
+                            <option value="" hidden>Selecciona una opcion</option>
+                        <!-- consulta traer datos de la base -->
+                        <?php $areaSsql = "SELECT id_tipificacion, nombre_tipificacion FROM tipificaciones WHERE grupo_tipificacion = 'reporte'";
+                                $areaQsql = $con -> query($areaSsql);
+                        ?>
+                        <!-- ciclo para mostrar las areas -->
+                        <?php foreach ($areaQsql as $row) { ?>
+                        
+                            <option value="<?php echo $row['nombre_tipificacion']; ?>"> <?php echo $row['nombre_tipificacion']; ?></option>
+                        
+                        <?php } ?>
+                        </select>
+                    </div>
                 </div>
             
-                <div class="form-group" id="cont-tipo_incidencia">
-                    <label for="tipo_incidencia">Tipo De Incidencia</label>
-                    <select name="tipo_incidencia" id="tipo_incidencia" class="form-control">
-                        <option value="" hidden>Selecciona una opcion</option>
+                <div class="form-group row" id="cont-tipo_incidencia">
+                    <label for="tipo_incidencia" class="col-sm-4 col-form-label">Tipo de incidencia</label>
+                    <div class="col-sm-8">
+                        <select name="tipo_incidencia" id="tipo_incidencia" class="form-control" required>
+                            <option value="" hidden>Selecciona una opcion</option>
 
-                    </select>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="form-group" id="cont-direccion" style="display: none;">
-                    <label for="direccion">Dirección</label>
-                    <input type="text" name="direccion" id="direccion" class="form-control" autocomplete="off" placeholder="Direccion de residencia">
+                <div class="form-group row" id="cont-detalle">
+                    <label for="detalle" class="col-sm-4 col-form-label">Descripción</label>
+                    <div class="col-sm-8">
+                        <textarea name="detalle" id="detalle" class="form-control" style="resize:none;" required></textarea>
+                    </div>
                 </div>
 
-                <div class="form-group col-5" id="ciudades">
-                    <label for="ciudades">Ciudad</label>
-                    <select name="ciudadesR" id="ciudadesR" class="form-control" onchange="ciudadesOtros(this)">
-            
-                    </select>
+                <div class="form-group row" id="cont-archivo">
+                    <label for="detalle" class="col-sm-4 col-form-label">Adjuntar</label>
+                    <div class="col-sm-8">
+                        <input type="file" name="archivo" class="form-control" id="archivo">
+                    </div>
                 </div>
 
-                <div class="form-group col-5" style="display: none;" id="ciudad">
-                    <label for="ciudadR">Otra ciudad</label>
-                    <input type="text" name="ciudadR" id="ciudadR" placeholder="Ingrese aqui la ciudad" class="form-control">
+                <div class="form-row">
+                    <div class="form-group col-md-6 row" id="cont-prioridad">
+                        <label for="nivel" class="col-sm-6 col-form-label">Prioridad de respuesta</label>
+                        <div class="col-sm-6">
+                            <select name="prioridad" id="prioridad" class="form-control col-lg-10" required>
+                                <option value="" hidden>Seleccionar</option>
+                                <option value="Alta">Alta</option>
+                                <option value="Media">Media</option>
+                                <option value="Baja">Baja</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-6 row">
+                        <label for="inputZip" class="col-sm-4 col-form-label">Incidencia a nivel</label>
+                        <div class="col-sm-4">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="nivel" id="inlineRadio1" value="Individual" required>
+                                <label style="font-weight: 200;" class="form-check-label" for="inlineRadio1">Invidual</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="nivel" id="inlineRadio2" value="General">
+                                <label style="font-weight: 200;" class="form-check-label" for="inlineRadio2">General</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="md-form" id="notas">
-                    <label for="notasR">Notas</label>
-                    <textarea name="notasR" id="notasR" class="form-control" cols="30" rows="4" style="resize:none;"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" id="btn-submit">Registar</button>
+                <center><button type="submit" class="btn btn-primary" id="btnEnviar" name="btnEnviar">Reportar</button></center>
             </form>
         </div>            
 
@@ -124,4 +159,42 @@
 
 </body>
 <script src="sistema/js/peticiones_ajax.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+    function update(){
+        var current = $('#counter').text();
+        var sum = Number(current) + 3;
+        var dataString = 'sum='+sum;
+ 
+        $.ajax({
+            type: "POST",
+            url: "sum.php",
+            data: dataString,
+            success: function() {
+                $('#counter').text(sum);
+            }
+        });
+    }
+ 
+    setInterval(update, 3000);
+});
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {	
+        function update(){
+            var num = $('#id').val();
+    
+            $.ajax({
+                type: "POST",
+                url: "sistema/logica/contadorTicket.php",
+                data: num,
+                success: function(data) {
+                    $('#id').val("Ticket N° "+(Number(data)+1));
+                }
+            });
+        }
+        
+        setInterval(update, 3000);
+    });
+</script>
 </html>

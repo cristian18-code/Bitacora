@@ -21,7 +21,7 @@
 
         // Consulta pra traer los datos del medico seleccionado
         $incidenciaSsql =  "SELECT tipificaciones.id_tipificacion, 
-                                     tipificaciones.nombre_tipificacion
+                                    tipificaciones.nombre_tipificacion
                                     FROM tipificaciones WHERE grupo_tipificacion = '".$valor."'";
         
         $incidenciaQsql = $conexion->query($incidenciaSsql) or die("Error en la consulta");
