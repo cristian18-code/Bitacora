@@ -36,13 +36,24 @@ section div#contenedor {
     width: 800px;
     padding: 10px;
 }
-section div#contenedor .bienvenida, section div#contenedor .bienvenida p  {
+section div#contenedor .bienvenida, section div#contenedor .bienvenida p {
     margin: 0 auto;
     margin-top: 5px;
     font-size: 22px;
     font-family: 'revert';
     margin-bottom: 5px;
 }
+
+section div#contenedor .bienvenida p span {
+    margin: 0 auto;
+    margin-top: 5px;
+    font-size: 24px;
+    font-weight: 200;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(117, 35, 35);
+    margin-bottom: 5px;
+}
+
 footer {
     grid-area: my-footer;
 }

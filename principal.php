@@ -1,5 +1,13 @@
 <?php
     include('config/session.php');
+
+    /* Trae el ultimo registro creado */
+    $traerDatos = "SELECT count(*) from tickets WHERE cierreTicket = 'No'";
+    $ver = $con->query($traerDatos) or die ("No se obtuvieron datos en la consulta");
+
+    if ($row = mysqli_fetch_row($ver)) {
+        $tickets = $row[0];
+    }
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -37,7 +45,7 @@
 <!--Section Inicia Aqui-->
 <section>
     <div id="contenedor">
-        <h5 class="bienvenida">Bienvenido al sistema <b><?php echo $_SESSION['username']?></b> <p class="tickets">Tienes 0 Tickets pendientes </p></h5>
+        <h5 class="bienvenida">Bienvenido al sistema <b><?php echo $_SESSION['username']?></b> <p class="tickets">Tienes <span id="pendientes" name="pendientes"> <?php echo $tickets?></span> Ticket pendiente(s) </p></h5>
     </div>
 
     <div class="container-all" id="menu" >
@@ -128,6 +136,24 @@
     </div>
 </section>
 <!--Section Termina Aqui-->
-<footer></footer>
+
 </body>
+<script>
+    $(document).ready(function() {	
+        function update(){
+            var num = $('#pendientes').text();
+    
+            $.ajax({
+                type: "POST",
+                url: "sistema/logica/contador_ticket_pendiente.php",
+                data: num,
+                success: function(data) {
+                    $('#pendientes').text(Number(data));
+                }
+            });
+        }
+        
+        setInterval(update, 3000);
+    });
+</script>
 </html>

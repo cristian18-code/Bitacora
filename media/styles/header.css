@@ -219,7 +219,7 @@ nav li ul a:hover{
 @media (min-width: 860px) and (max-width: 960px) {
 
     body {
-		grid-template-rows: 190px 
+		grid-template-rows: 210px 
 							1fr
 							60px !important;
 	}
@@ -228,7 +228,7 @@ nav li ul a:hover{
 @media screen and (max-width: 860px) {
 
     body {
-		grid-template-rows: 220px 
+		grid-template-rows: 240px 
 							1fr
 							60px !important;
 	}

@@ -1,13 +1,10 @@
 <?php 
 	    $rol = $_SESSION['rol'];
 
-		switch ($rol) {
-			case 1:
-				$rol = 'Administrador';
-				break;
-			case 2: 
-				$rol = 'Supervisor';
-				break;
+		$nombreRol = $con-> query("SELECT nombre_rol FROM roles WHERE id_rol = '".$rol."'");
+
+		if ($row = mysqli_fetch_row($nombreRol)) {
+			$rol = $row[0];
 		}
 ?>
 	<div class="header">
