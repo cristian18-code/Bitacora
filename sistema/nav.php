@@ -5,7 +5,7 @@
   <li class="principal"> <a href="#"> <span class="icon-user-tie"></span> Administrador </a>
     <ul>
       <li><a href="./reportar_incidencia.php"> <span class="icon-wrench"> </span> Reportar </a></li>
-      <li><a href="#">  <span class="icon-eye"> </span> Seguimiento </a></li>
+      <li><a href="./seguimiento_ticket.php">  <span class="icon-eye"> </span> Seguimiento </a></li>
       <li><a href="#">  <span class="icon-paste"> </span> Informes </a></li>
       <li><a href="#">  <span class="icon-users"> </span> Usuarios &nbsp;&nbsp; <span style="font-size: 14px;" class="icon-circle-right"></span> </a>
         <ul>

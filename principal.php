@@ -68,7 +68,7 @@
 
         </div>  
 
-        <a href="tabla_smd.php">
+        <a href="#">
 
         <div class="box box2">
 
@@ -84,7 +84,7 @@
 
         </div> 
 
-        <a href="Tabla_omt.php">
+        <a href="#">
 
             <div class="box box3">
 
@@ -116,7 +116,7 @@
 
         </div> 
 
-        <a href="reportes.php">
+        <a href="#">
 
         <div class="box box5">
 

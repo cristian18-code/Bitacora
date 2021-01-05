@@ -14,7 +14,7 @@
         $area = $_POST['area'];
         $tipo_reporte = $_POST['tipo_reporte'];
 
-        $query = $con-> query("SELECT id_tipificacion FROM tipificaciones WHERE nombre_tipificacion = '$tipo_reporte'") or die ("ERROR en la consulta tipificaciones");
+        $query = $con-> query("SELECT id_tipificacion FROM tipificaciones WHERE nombre_tipificacion = '$tipo_reporte'") or die ($alert='<p class="msg_error"> error en la base de datos</p>');
         if ($query) {
             $row = mysqli_fetch_row($query);
             $tipo_reporte = $row[0];
@@ -22,7 +22,7 @@
 
         $tipo_incidencia = $_POST['tipo_incidencia'];
         $detalle = $_POST['detalle'];
-        $archivo = ''; if (!empty($_POST['archivo'])) {$archivo = $_POST['archivo'];}
+        if (!empty($_FILES['archivo']['tmp_name'])) {$detalle = "NULL";} else {$detalle = "NO NULL";}
         $prioridad = $_POST['prioridad'];
         $nivel = $_POST['nivel'];
 
@@ -38,7 +38,7 @@
                                             incidenciaNivel)
                                     VALUES ('$userReporta',
                                             '$area',
-                                            STR_TO_DATE('$fechaReporte', '%d/%m/%y'),
+                                            STR_TO_DATE('$fechaReporte', '%d/%m/%Y'),
                                             '$horaReporte',
                                             '$tipo_reporte',
                                             '$tipo_incidencia',

@@ -13,11 +13,10 @@
     if ($row = mysqli_fetch_row($ver)) {
         $id = $row[0];
     }
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <!-- Estilos css -->
     <link rel="stylesheet" href="media/styles/libs/bootstrap.min.css">
@@ -54,7 +53,7 @@
         <div class="alerta"></div>
             <input type="text" name="id" id="id" readonly value="Ticket N° <?php echo ($id+1); ?>"> <!-- Muestra el numero del registro a crear -->
             <br>
-            <form action="sistema/logica/registrarTicket.php" onsubmit="" method="post" name="formTicket" id="formTicket">
+            <form action="sistema/logica/registrarTicket.php" enctype="multipart/form-data" method="post" name="formTicket" id="formTicket">
                 <div id="encabezado" class="form-group">
                     <input type="text" name="dia" id="dia" value="" readonly> <!-- Muestra el dia actual -->
                     <img src="media/images/mantenimiento.png" alt="anadir" width="80px">
@@ -118,9 +117,9 @@
                 </div>
 
                 <div class="form-group row" id="cont-archivo">
-                    <label for="detalle" class="col-sm-4 col-form-label">Adjuntar</label>
+                    <label for="archivo" class="col-sm-4 col-form-label">Adjuntar</label>
                     <div class="col-sm-8">
-                        <input type="file" name="archivo" class="form-control" id="archivo">
+                        <input type="file" name="archivo" class="form-control" id="archivo" multiple>
                     </div>
                 </div>
 
@@ -159,26 +158,6 @@
 
 </body>
 <script src="sistema/js/peticiones_ajax.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {	
-    function update(){
-        var current = $('#counter').text();
-        var sum = Number(current) + 3;
-        var dataString = 'sum='+sum;
- 
-        $.ajax({
-            type: "POST",
-            url: "sum.php",
-            data: dataString,
-            success: function() {
-                $('#counter').text(sum);
-            }
-        });
-    }
- 
-    setInterval(update, 3000);
-});
-</script>
 <script type="text/javascript">
     $(document).ready(function() {	
         function update(){
