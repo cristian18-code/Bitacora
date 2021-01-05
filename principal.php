@@ -1,12 +1,25 @@
 <?php
     include('config/session.php');
 
-    /* Trae el ultimo registro creado */
-    $traerDatos = "SELECT count(*) from tickets WHERE cierreTicket = 'No'";
-    $ver = $con->query($traerDatos) or die ("No se obtuvieron datos en la consulta");
+    /* Trae el numero de tickets pendientes */
+    if ($rol == 'Administrador') { 
 
-    if ($row = mysqli_fetch_row($ver)) {
-        $tickets = $row[0];
+        $traerDatos = "SELECT count(*) from tickets WHERE cierreTicket != 'Si'";
+        $ver = $con->query($traerDatos) or die ("No se obtuvieron datos en la consulta");
+
+        if ($row = mysqli_fetch_row($ver)) {
+            $tickets = $row[0];
+        }
+
+    } else if ($rol == 'Supervisor') {
+        
+        $traerDatos = "SELECT count(*) from tickets
+                                        WHERE tickets.cierreTicket != 'Si' AND id_quienReporta = ".$_SESSION['idUser']."";
+        $ver = $con->query($traerDatos) or die ("No se obtuvieron datos en la consulta");
+
+        if ($row = mysqli_fetch_row($ver)) {
+            $tickets = $row[0];
+        }
     }
 ?>
 <!DOCTYPE HTML>
@@ -45,7 +58,7 @@
 <!--Section Inicia Aqui-->
 <section>
     <div id="contenedor">
-        <h5 class="bienvenida">Bienvenido al sistema <b><?php echo $_SESSION['username']?></b> <p class="tickets">Tienes <span id="pendientes" name="pendientes"> <?php echo $tickets?></span> Ticket pendiente(s) </p></h5>
+        <h5 class="bienvenida">Bienvenido(a) al sistema <i><?php echo $_SESSION['nombre']?></i> <p class="tickets">Tienes <span id="pendientes" name="pendientes"> <?php echo $tickets?></span> Ticket pendiente(s) </p></h5>
     </div>
 
     <div class="container-all" id="menu" >
@@ -68,7 +81,7 @@
 
         </div>  
 
-        <a href="#">
+        <a href="seguimiento_ticket.php">
 
         <div class="box box2">
 
@@ -141,12 +154,16 @@
 <script>
     $(document).ready(function() {	
         function update(){
-            var num = $('#pendientes').text();
-    
+            var roles = '<?php echo $rol ?>';
+            var user = '<?php echo $_SESSION['idUser'] ?>';
+            var param = {
+                rol: roles,
+                usuario: user
+            }
             $.ajax({
                 type: "POST",
                 url: "sistema/logica/contador_ticket_pendiente.php",
-                data: num,
+                data: param,
                 success: function(data) {
                     $('#pendientes').text(Number(data));
                 }
