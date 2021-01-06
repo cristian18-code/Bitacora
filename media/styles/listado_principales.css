@@ -1,0 +1,49 @@
+table{
+    border-collapse: collapse;
+    font-size: 12pt;
+    font-family: 'arial';
+    width: 100%;
+}
+table th{
+    text-align: center;
+    padding: 10px;
+    background: #3d7ba8;
+    color: #fff;
+}
+table td{
+    font-family: 'Open Sans';
+    padding: 10px;
+    text-align: center;
+}
+#container h1{
+    font-size: 35px;
+    display: inline-block;
+}
+.btn-nuevo{
+    display:inline-block;
+    background: #239baa;
+    color:#fff;
+    padding: 5px 25px;
+    border-radius: 4px;
+    margin: 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.link-modificar{
+    color:white;
+    background:rgb(49, 91, 230);
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin: 20px;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.link-eliminar{
+    color:white;
+    background:red;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin: 20px;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}

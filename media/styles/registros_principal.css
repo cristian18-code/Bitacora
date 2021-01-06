@@ -1,0 +1,112 @@
+.formulario_registro{
+    width:450px;
+    margin: auto;
+
+}
+.formulario_registro h1{
+    color: #3c93b0;
+}
+hr{
+    border: 0;
+    background: #ccc;
+    height: 1px;
+    margin: 10px 0;
+    display: block;
+}
+form{
+    background: #fff;
+    margin: auto;
+    padding: 20px 50px;
+    border: 1px solid #d1d1d1;
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    
+}
+label{
+    display: block;
+    font-size: 12pt;
+    font-family: 'Open Sans';
+    margin: 15px auto 5px auto;
+}
+input,select{
+    display: block;
+    width: 100%;
+    font-size: 11pt;
+    padding: 5px;
+    border: 1px solid #85929e;
+    border-radius: 5px;
+}
+.btn-save{
+    font-size: 12pt;
+    background-color: #12a4c6;
+    padding: 10px;
+    color: white;
+    letter-spacing: 1px;
+    border:0;
+    cursor: pointer;
+    margin: 15px auto;
+}
+div.alerta{
+    width: 100%;
+    background: rgb(192, 243, 140);
+    border-radius: 6px;
+    margin: 20px auto;
+    
+}
+.msg_error{
+    color: #e65656;
+}
+.msg_save{
+    color: #126e00;
+}
+.alerta p{
+    padding: 10px;
+}
+/*Mensaje de SMS*/
+
+div#acceder2 ul{
+    margin: 0;
+    padding: 0;
+    list-style:none;
+    text-align: center;
+
+}
+
+
+div#acceder2 #login2{
+    display: inline-block;
+    font-size: 16px;
+    text-decoration: none;
+    color:red;  
+    font-weight: 600;
+    text-align: center;
+
+    
+    
+}
+div#acceder2 #login-content2{
+    background: rgb(193, 194, 193);
+    box-shadow: rgb(4, 116, 180) 5px 5px 5px 0;
+    position: absolute;
+    border: solid rgb(224, 224, 224);
+    right:10px;
+    width: 500px;
+    border-radius: 5px;
+    top: 400px;
+    text-align: center;
+
+}
+#mensaje{
+    position: relative;
+    background: rgb(206, 4, 4);
+    color: #f1f1f1;
+    cursor: pointer;
+    font-size: 16pt;
+    top: -50px;
+    left: 180px;
+    margin-top: 5px;
+}
+.formu-men input{   
+    width: 60%;
+    margin: auto;
+}

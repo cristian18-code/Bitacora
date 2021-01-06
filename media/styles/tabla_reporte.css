@@ -1,35 +1,22 @@
+.adicional{
+    width: 100%;
+    height: 50px;
+}
 section {
-    margin: 20px 0; 
     grid-area: my-section;
     padding: 3rem !important;
     margin: 0 auto !important;
-    max-width: 1400px;
+    max-width:1600px;
     grid-column: 1/2;
     justify-content: center;
     border: 1px solid #ffffff !important;
     border-radius: 10px;
     text-align: center;
     background: #fff;
+    z-index: 0;
     margin-bottom: 50px;
     box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
-}
-
-section img {
-    margin: 0 auto;
-    margin: 0 20px 0px 20px;
-}
-
-section #dia, section #hora {
-    border: 1px solid rgb(11, 70, 197);
-    background-color: rgba(255, 255, 255, .0);
-    pointer-events: none;
-    border-radius: 20px;
-    text-align: center;
-    font-weight: 800;
-    display: inline-block;
-    padding: 10px;
-    width: 150px;
-    font-size: 18px;
+   
 }
 
 section .subtitulo { 
@@ -43,12 +30,13 @@ section .subtitulo {
 section form #registros_wrapper .row {
     margin: 10px;
 }
-
+section table thead tr, section table tfoot tr{
+    background: rgb(1, 95, 133);
+}
 section table thead tr th{
     z-index: 1;
-    color: #000;
-}
 
+}
 section table td {
     font-size: 1rem;
     font-family: 'Open Sans', sans-serif;
@@ -56,22 +44,18 @@ section table td {
 }
 
 section table tr th{
-    color: #000;
+    color: #f1f2f3;
 
 }
-
 table tr#sinGestion {
-    background-color:#F1948A ;
+    background-color: #ff020263;
 }
 
 table tr#pendiente {
-    background-color:#F9E79F;
+    background-color: #ffd1024b;
 }
 
-table tr#gestionado {
-    background-color: #ABEBC6;
-}
-.adicional{
-    width: 100%;
-    height: 50px;
+form{
+    margin:auto;
+    width: 400px;
 }

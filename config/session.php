@@ -7,13 +7,13 @@ session_start();// Iniciando Sesion
 // Guardando la sesion
 $user_check=$_SESSION['username'];
 // SQL Query para completar la informacion del usuario
-$ses_sql=mysqli_query($con, "SELECT id_usuario, nombre, rol FROM usuarios WHERE username='$user_check'");
+$ses_sql=mysqli_query($con, "SELECT id_usuario, nombre, rol, username FROM usuarios WHERE username='$user_check'");
 $row = mysqli_fetch_assoc($ses_sql);
 
         $_SESSION['idUser'] = $row['id_usuario'];
         $_SESSION['nombre'] = $row['nombre'];
         $_SESSION['rol'] = $row['rol'];
-        $login_session = $_SESSION['username'];
+        $login_session = $row['username'];
         
         $nombreRol = $con-> query("SELECT nombre_rol FROM roles WHERE id_rol = '".$_SESSION['rol']."'");
 
@@ -24,5 +24,8 @@ $row = mysqli_fetch_assoc($ses_sql);
 if(!isset($login_session)){
 mysqli_close($con); // Cerrando la conexion
 header('Location: index.php'); // Redirecciona a la pagina de inicio
+if ($login_session != $_SESSION['username']) {
+header('Location: config/logout.php'); // Redirecciona a la pagina de inicio
+}
 }
 ?>
