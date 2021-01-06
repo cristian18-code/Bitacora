@@ -55,11 +55,11 @@
 </header>
 <!--header Termina Aqui-->	
 
-<!--Section Inicia Aqui-->
-<section>
     <div id="contenedor">
         <h5 class="bienvenida">Bienvenido(a) al sistema <i><?php echo $_SESSION['nombre']?></i> <p class="tickets">Tienes <span id="pendientes" name="pendientes"> <?php echo $tickets?></span> Ticket pendiente(s) </p></h5>
     </div>
+<!--Section Inicia Aqui-->
+<section>
 
     <div class="container-all" id="menu" >
 
@@ -67,36 +67,38 @@
 
             <a href="reportar_incidencia.php" target="_top">
 
-            <div class="box box1">
+                <div class="box box1">
 
-                <img src="media/images/reportar.png" alt="usuario-reportar" class="icon">
+                    <img src="media/images/reportar.png" alt="usuario-reportar" class="icon">
 
-                <h4 class="title">Reportar incidencia</h4>
+                    <h4 class="title">Reportar incidencia</h4>
+
+                    <p><strong>¡Modulo administrador!</strong></p>
+
+                <div class="background-hover"></div>
+
+            </a>
+            
+        </div>  
+
+                
+        <a href="seguimiento_ticket.php">
+
+            <div class="box box2">
+
+                <img src="media/images/seguimiento.png" alt="seguimiento" class="icon">
+
+                <h4 class="title">Seguimiento</h4>
 
                 <p><strong>¡Modulo administrador!</strong></p>
 
             <div class="background-hover"></div>
 
-            </a>
-
-        </div>  
-
-        <a href="seguimiento_ticket.php">
-
-        <div class="box box2">
-
-            <img src="media/images/seguimiento.png" alt="seguimiento" class="icon">
-
-            <h4 class="title">Seguimiento</h4>
-
-            <p><strong>¡Modulo administrador!</strong></p>
-
-        <div class="background-hover"></div>
-
         </a> 
 
         </div> 
 
+        <?php if ($rol == 'Administrador') { ?>
         <a href="#">
 
             <div class="box box3">
@@ -107,42 +109,47 @@
 
             <p><strong>Descargar informes</strong></p>
 
-        <div class="background-hover"></div>
+            <div class="background-hover"></div>
 
         </a> 
+        <?php } ?>
 
         </div> 
 
+        <?php if ($rol == 'Administrador') { ?>
         <a href="crear_usuario.php">
 
-        <div class="box box4">
+            <div class="box box4">
 
-            <img src="media/images/agregar-usuario.png" class="icon">
+                <img src="media/images/agregar-usuario.png" class="icon">
 
-            <h4 class="title">Crear usuario</h4>
+                <h4 class="title">Crear usuario</h4>
 
-            <p><strong>Añadir un nuevo usuario</strong></p>
+                <p><strong>Añadir un nuevo usuario</strong></p>
 
-        <div class="background-hover"></div>
+            <div class="background-hover"></div>
 
         </a> 
+        <?php } ?>
 
         </div> 
 
+        <?php if ($rol == 'Administrador') { ?>
         <a href="listado_usuarios.php">
 
-        <div class="box box5">
+            <div class="box box5">
 
-            <img src="media/images/cliente.png" class="icon">
+                <img src="media/images/cliente.png" class="icon">
 
-            <h4 class="title">Lista de usuarios</h4>
+                <h4 class="title">Lista de usuarios</h4>
 
-            <p><strong>Usuarios registrados</strong></p>
+                <p><strong>Usuarios registrados</strong></p>
 
 
-        <div class="background-hover"></div>
+            <div class="background-hover"></div>
 
         </a> 
+        <?php } ?>
 
         </div> 
 

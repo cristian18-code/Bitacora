@@ -185,6 +185,10 @@ nav li ul a{
 nav li ul a:hover{
 	background: rgba(8, 199, 40, 0.11);
 }
+
+header, nav ul li {
+	z-index: 10000;
+}
 /*****************************************************************/
 /* barra del scroll*/
 *::-webkit-scrollbar {

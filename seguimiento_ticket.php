@@ -15,6 +15,13 @@
                     FROM ((tickets INNER JOIN usuarios ON tickets.id_quienReporta = usuarios.id_usuario)
                     INNER JOIN tipificaciones ON tickets.id_tipoReporte = tipificaciones.id_tipificacion)";
     $qsqlDatos = $con->query($ssql);
+
+    //boton redireccion
+    if ($rol == 'Administrador') {
+        $boton = 'Editar';
+    } else if ($rol == 'Supervisor') {
+        $boton = 'Ver';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,7 +32,6 @@
     <link rel="stylesheet" href="media/icons/style.css">
     <link rel="stylesheet" href="media/styles/seguimiento_ticket.css">
     <link rel="stylesheet" href="media/styles/libs/dataTables.bootstrap5.min.css"> <!-- estilo de la tabla -->
-    <!-- <link rel="stylesheet" href="media/styles/libs/bootstrap5.min.css"> -->
 <!-- Estilos css -->
     <link rel="shortcut icon" href="media/images/favicon.png" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -83,7 +89,7 @@
                             <td><?php echo $dato['prioridad']?></td>
                             <input type="hidden" id="estado" value="<?php echo $dato['cierreTicket']; ?>"> <!-- para dar color a la fila-->
                             <input type="hidden" name="ticket" id="ticket" value="<?php echo $dato['id_ticket'];?>"> <!-- numero de registro -->
-                            <td><input type="submit" value="Editar" class="btn btn-primary"></td> <!-- Envia los tres datos anteriores -->
+                            <td><input type="submit" value="<?php echo $boton;?>" class="btn btn-primary"></td> <!-- Envia los tres datos anteriores -->
                         </form>
                     </tr>
                 <?php } ?>

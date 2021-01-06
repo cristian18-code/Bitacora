@@ -1,29 +1,12 @@
-body {
-    margin: 0 auto !important;
-    min-height: 100vh;
-    display: grid !important;
-    background-color: #f8f7f7;
-    grid-template-columns: 100%;
-    grid-template-rows: 110px 
-                        1fr
-                        60px;
-    grid-template-areas:"my-header my-header my-header"
-                        "my-section my-section my-section"
-                        "my-footer my-footer my-footer";
-}
-
-header {
-    grid-area: my-header;
-    grid-column: 1/2;
-    z-index: 10;
-}
 
 section {
     grid-area: my-section;
     grid-column: 1/2;
     margin: 0 auto;
+    display: flex !important;
+    align-items: center;
 }
-section div#contenedor {
+body div#contenedor {
     border-radius: 20px;
     display: flex !important;
     align-items: center;
@@ -36,7 +19,7 @@ section div#contenedor {
     width: 800px;
     padding: 10px;
 }
-section div#contenedor .bienvenida, section div#contenedor .bienvenida p {
+body div#contenedor .bienvenida, body div#contenedor .bienvenida p {
     margin: 0 auto;
     margin-top: 5px;
     font-size: 22px;
@@ -44,7 +27,7 @@ section div#contenedor .bienvenida, section div#contenedor .bienvenida p {
     margin-bottom: 5px;
 }
 
-section div#contenedor .bienvenida p span {
+body div#contenedor .bienvenida p span {
     margin: 0 auto;
     margin-top: 5px;
     font-size: 24px;
@@ -52,8 +35,4 @@ section div#contenedor .bienvenida p span {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(117, 35, 35);
     margin-bottom: 5px;
-}
-
-footer {
-    grid-area: my-footer;
 }

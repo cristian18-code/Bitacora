@@ -90,15 +90,15 @@
                 ?>
         </tbody>
 
-             <tfoot style=" background: rgb(9, 162, 223);">
-             <tr>
-                <th> ID</th>
-                <th> Nombre </th>
-                <th> Usuario </th>
-                <th> Rol </th>
-                <th> Acciones </th>
-             </tr>
-             </tfoot>
+            <tfoot style=" background: rgb(9, 162, 223);">
+            <tr>
+               <th> ID</th>
+               <th> Nombre </th>
+               <th> Usuario </th>
+               <th> Rol </th>
+               <th> Acciones </th>
+            </tr>
+            </tfoot>
 
         </table>
 
@@ -108,10 +108,10 @@
 </body>
 
 <script>
-		$(document).ready(function() {
-			$('#usuario').DataTable(); /* Script para la tabla */
-		} );
+    $(document).ready(function() {
+        $('#usuario').DataTable(); /* Script para la tabla */
+    });
 </script>	
-		<script src="sistema/js/libs/jquery.dataTables.min.js"></script> <!-- Script de Datatable -->
-		<script src="sistema/js/libs/bootstrap5.min.js"></script> <!-- Script de Datatable -->
+    <script src="sistema/js/libs/jquery.dataTables.min.js"></script> <!-- Script de Datatable -->
+    <script src="sistema/js/libs/bootstrap5.min.js"></script> <!-- Script de Datatable -->
 </html>
