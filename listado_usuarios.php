@@ -50,45 +50,45 @@
 
         <table id="usuario" class="table table-striped table-bordered">
 
-        <thead>
-            <tr>
-                <th> ID</th>
-                <th> Nombre </th>
-                <th> Usuario </th>
-                <th> Rol </th>
-                <th> Acciones </th>
-           </tr>
-        </thead>
-        
-        <tbody>
-            <?php 
-                $query = mysqli_query($con, "SELECT usuarios.id_usuario, usuarios.nombre, usuarios.username, roles.nombre_rol FROM usuarios INNER JOIN roles ON usuarios.rol = roles.id_rol");
-            
-                $result = mysqli_num_rows($query);
-
-                if($result > 0){
-
-                while($data = mysqli_fetch_array($query)){
-            ?>
-
-            <tr>
-                <td> <?php echo $data['id_usuario'] ?> </td>
-                <td> <?php echo $data['nombre'] ?></td>
-                <td> <?php echo $data['username'] ?> </td>
-                <td> <?php echo $data['nombre_rol'] ?> </td>
-                <td> 
-                <a href="modificar.php?id=<?php echo $data["id_usuario"];?>" class="link-modificar"> <span class="icon-pencil"></span> Modificar</a>
-                <?php if($data['id_usuario'] != 1 && $data['id_usuario'] != 2 && $data['id_usuario'] != 3){ ?>
-                <a href="modificar_usuarios.php?id=<?php echo $data["id_usuario"];?>" class="link-eliminar">  <span class="icon-bin"></span>  Eliminar</a>
-                <?php }?>
-                </td>
+            <thead>
+                <tr>
+                    <th> ID</th>
+                    <th> Nombre </th>
+                    <th> Usuario </th>
+                    <th> Rol </th>
+                    <th> Acciones </th>
             </tr>
-      
-                <?php
-                    }
-                }
+            </thead>
+        
+            <tbody>
+                <?php 
+                    $query = mysqli_query($con, "SELECT usuarios.id_usuario, usuarios.nombre, usuarios.username, roles.nombre_rol FROM usuarios INNER JOIN roles ON usuarios.rol = roles.id_rol");
+                
+                    $result = mysqli_num_rows($query);
+
+                    if($result > 0){
+
+                    while($data = mysqli_fetch_array($query)){
                 ?>
-        </tbody>
+
+                <tr>
+                    <td> <?php echo $data['id_usuario'] ?> </td>
+                    <td> <?php echo $data['nombre'] ?></td>
+                    <td> <?php echo $data['username'] ?> </td>
+                    <td> <?php echo $data['nombre_rol'] ?> </td>
+                    <td> 
+                    <a href="modificar.php?id=<?php echo $data["id_usuario"];?>" class="link-modificar"> <span class="icon-pencil"></span> Modificar</a>
+                    <?php if($data['id_usuario'] != 1 && $data['id_usuario'] != 2 && $data['id_usuario'] != 3){ ?>
+                    <a href="eliminar_usuarios.php?id=<?php echo $data["id_usuario"];?>" class="link-eliminar">  <span class="icon-bin"></span>  Eliminar</a>
+                    <?php }?>
+                    </td>
+                </tr>
+        
+                    <?php
+                        }
+                    }
+                    ?>
+            </tbody>
 
             <tfoot style=" background: rgb(9, 162, 223);">
             <tr>
@@ -104,7 +104,6 @@
 
     </section>
 
-    
 </body>
 
 <script>

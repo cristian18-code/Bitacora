@@ -1,0 +1,29 @@
+form.delete{
+    margin-top: 60px;
+    width: 700px;
+}
+.data-delete{
+    text-align: center;
+}
+.data-delete h1{
+    font-size: 12pt;
+}
+.data-delete span{
+    font-weight: bold;
+    color:#4f72d4;
+    font-size: 12pt;
+}
+.btn_cancel, .btn_ok{
+    width: 124px;
+    background: #0099cc;
+    color: #fff;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+.btn_cancel{
+    background: rgb(204, 43, 43);
+}
