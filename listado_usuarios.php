@@ -78,7 +78,7 @@
                 <td> <?php echo $data['nombre_rol'] ?> </td>
                 <td> 
                 <a href="modificar.php?id=<?php echo $data["id_usuario"];?>" class="link-modificar"> <span class="icon-pencil"></span> Modificar</a>
-                <?php if($data['id_usuario'] != 1){ ?>
+                <?php if($data['id_usuario'] != 1 && $data['id_usuario'] != 2 && $data['id_usuario'] != 3){ ?>
                 <a href="modificar_usuarios.php?id=<?php echo $data["id_usuario"];?>" class="link-eliminar">  <span class="icon-bin"></span>  Eliminar</a>
                 <?php }?>
                 </td>
