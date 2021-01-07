@@ -2,7 +2,7 @@
 <ul class="nav justify-content-center">
   <li><a href="./principal.php"> <span class="icon-home3"></span> Inicio</a></li>
 
-    <?php if ($rol == 'Administrador') {?>
+    <?php if ($_SESSION['rol'] == 'Administrador') {?>
       <li class="principal"> <a href="#"> <span class="icon-user-tie"></span> Administrador </a>
         <ul>
           <li><a href="./reportar_incidencia.php"> <span class="icon-wrench"> </span> Reportar </a></li>

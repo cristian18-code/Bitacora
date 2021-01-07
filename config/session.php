@@ -19,6 +19,7 @@ $row = mysqli_fetch_assoc($ses_sql);
 
         if ($fila = mysqli_fetch_row($nombreRol)) {
                 $rol = $fila[0];
+                $_SESSION['rol'] = $rol; 
         }
                 
 if(!isset($login_session)){

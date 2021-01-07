@@ -3,7 +3,7 @@
     include('config/session.php');
     include('config/conexion.php');
 
-    if($rol != 'Administrador')
+    if($_SESSION['rol'] != 'Administrador')
     {
        header('location: principal.php');
     }
@@ -104,8 +104,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Scripts -->
-    <script src="js/getTime.js"></script>
-    <script src="js/libs/jquery-3.5.1.min.js"></script>
+    <script src="sistema/js/libs/jquery-3.5.1.min.js"></script>
 <!-- Scripts -->    
     <title>Listado Usuarios - Bitacora</title>
 </head>

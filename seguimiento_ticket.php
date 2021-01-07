@@ -2,7 +2,7 @@
     include('config/session.php');
     include('config/conexion.php');
 
-    if ($rol != 'Administrador' && $rol != 'Supervisor') {
+    if ($_SESSION['rol'] != 'Administrador' && $_SESSION['rol'] != 'Supervisor') {
         header("location: principal.php");
     }
     /* Traer los tickets pendientes */
@@ -17,9 +17,9 @@
     $qsqlDatos = $con->query($ssql);
 
     //boton redireccion
-    if ($rol == 'Administrador') {
+    if ($_SESSION['rol'] == 'Administrador') {
         $boton = 'Editar';
-    } else if ($rol == 'Supervisor') {
+    } else if ($_SESSION['rol'] == 'Supervisor') {
         $boton = 'Ver';
     }
 ?>
