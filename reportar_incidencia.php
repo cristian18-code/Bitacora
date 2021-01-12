@@ -53,7 +53,7 @@
         <div class="alerta"></div>
             <input type="text" name="id" id="id" readonly value="Ticket N° <?php echo ($id+1); ?>"> <!-- Muestra el numero del registro a crear -->
             <br>
-            <form action="sistema/logica/registrarTicket.php" enctype="multipart/form-data" method="post" name="formTicket" id="formTicket">
+            <form enctype="multipart/form-data" method="post" name="formTicket" id="formTicket">
                 <div id="encabezado" class="form-group">
                     <input type="text" name="dia" id="dia" value="" readonly> <!-- Muestra el dia actual -->
                     <img src="media/images/mantenimiento.png" alt="anadir" width="80px">
@@ -173,7 +173,7 @@
             });
         }
         
-        setInterval(update, 3000);
+        setInterval(update, 5000);
     });
 </script>
 </html>

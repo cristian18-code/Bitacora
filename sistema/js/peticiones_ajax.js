@@ -52,12 +52,16 @@
     }
 
     $(document).ready(function(){
-        $('#formTicket').bind("submit", function(){
+        $("#btnEnviar").on('click', function(){
+
+            var parametros = new FormData($("#formTicket")[0]);
             var btnEnviar = $("#btnEnviar");
             $.ajax({
-                type: 'POST',
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
+                data:parametros,
+                url:"./sistema/logica/registrarTicket.php",
+                type:"POST",
+                contentType:false,
+                processData:false,
                 beforeSend: function(){
                     btnEnviar.val("Enviando"); // Para input de tipo button
                     btnEnviar.attr("disabled","disabled");
@@ -99,8 +103,6 @@
                 }
             }
             });
-            // Nos permite cancelar el envio del formulario
-            return false;
-        });           
+            // Nos permite cancelar el envio del formulario   
+        });
     });
-    

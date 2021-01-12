@@ -22,11 +22,53 @@
 
         $tipo_incidencia = $_POST['tipo_incidencia'];
         $detalle = $_POST['detalle'];
-        if (!empty($_FILES['archivo']['tmp_name'])) {$detalle = "NULL";} else {$detalle = "NO NULL";}
         $prioridad = $_POST['prioridad'];
         $nivel = $_POST['nivel'];
+        
+        if (!empty($_FILES['archivo']['tmp_name'])) {
+        
+            $archivo = (isset($_FILES['archivo'])) ? $_FILES['archivo'] : null;
+            $nombre_archivo = $archivo['name'];
+            $ruta_destino_archivo = "archivos/{$archivo['name']}";
+            $archivo_ok = move_uploaded_file($archivo['tmp_name'], "../../$ruta_destino_archivo");
+            
+            if ($archivo_ok) {
 
-        $insertSsql = "INSERT INTO tickets (id_quienReporta,
+                $insertSsql = "INSERT INTO tickets (id_quienReporta,
+                                            id_area_solicitante,
+                                            fechaReporte,
+                                            horaReporte,
+                                            id_tipoReporte,
+                                            id_tipoIncidencia,
+                                            detalleSoporte,
+                                            adjuntoReporte,
+                                            prioridad,
+                                            incidenciaNivel)
+                                    VALUES ('$userReporta',
+                                            '$area',
+                                            STR_TO_DATE('$fechaReporte', '%d/%m/%Y'),
+                                            '$horaReporte',
+                                            '$tipo_reporte',
+                                            '$tipo_incidencia',
+                                            '$detalle',
+                                            '$nombre_archivo',
+                                            '$prioridad',
+                                            '$nivel')";
+
+                $insertQslq = $con-> query($insertSsql);
+
+                if($insertQslq){
+                    $alert='<p class="msg_save"> Ticket creado Correctamente</p>'; 
+                }else{
+                    $alert='<p class="msg_error"> error al crear el Ticket</p>';    
+                }
+
+            } else {
+                $alert='<p class="msg_error"> error al crear el Ticket</p>';
+            }
+
+        } else {
+            $insertSsql = "INSERT INTO tickets (id_quienReporta,
                                             id_area_solicitante,
                                             fechaReporte,
                                             horaReporte,
@@ -34,7 +76,6 @@
                                             id_tipoIncidencia,
                                             detalleSoporte,
                                             prioridad,
-                                            adjuntoReporte,
                                             incidenciaNivel)
                                     VALUES ('$userReporta',
                                             '$area',
@@ -44,19 +85,19 @@
                                             '$tipo_incidencia',
                                             '$detalle',
                                             '$prioridad',
-                                            '$archivo',
                                             '$nivel')";
 
-        $insertQslq = $con-> query($insertSsql);
-
-        if($insertQslq){
-            $alert='<p class="msg_save"> Ticket creado Correctamente</p>'; 
-        }else{
-            $alert='<p class="msg_error"> error al crear el Ticket</p>';    
-        }           
-        
-        mysqli_close($con);
+            $insertQslq = $con-> query($insertSsql);   
+            
+            if($insertQslq){
+                $alert='<p class="msg_save"> Ticket creado Correctamente</p>'; 
+            }else{
+                $alert='<p class="msg_error"> error al crear el Ticket</p>';    
+            }
+        }
+           
         echo $alert;
+        mysqli_close($con);
     }
 
 ?>
