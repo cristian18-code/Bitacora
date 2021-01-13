@@ -126,29 +126,27 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group col-md-6 row" id="cont-prioridad">
-                        <label for="nivel" class="col-sm-6 col-form-label">Prioridad de respuesta</label>
-                        <div class="col-sm-6">
-                            <select name="prioridad" id="prioridad" class="form-control col-lg-10" required>
-                                <option value="" hidden>Seleccionar</option>
-                                <option value="Alta">Alta</option>
-                                <option value="Media">Media</option>
-                                <option value="Baja">Baja</option>
-                            </select>
-                        </div>
+                <div class="form-group row" id="cont-prioridad">
+                    <label for="nivel" class="col-sm-4 col-form-label">Prioridad de respuesta</label>
+                    <div class="col-sm-8">
+                        <select name="prioridad" id="prioridad" class="form-control" required>
+                            <option value="" hidden>Seleccionar</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
+                        </select>
                     </div>
-                    <div class="form-group col-6 row">
-                        <label for="inputZip" class="col-sm-4 col-form-label">Incidencia a nivel</label>
-                        <div class="col-sm-4">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="nivel" id="inlineRadio1" value="Individual" required>
-                                <label style="font-weight: 200;" class="form-check-label" for="inlineRadio1">Invidual</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="nivel" id="inlineRadio2" value="General">
-                                <label style="font-weight: 200;" class="form-check-label" for="inlineRadio2">General</label>
-                            </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputZip" class="col-sm-4 col-form-label">Incidencia a nivel</label>
+                    <div class="col-sm-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="nivel" id="inlineRadio1" value="Individual" required>
+                            <label style="font-weight: 200;" class="form-check-label" for="inlineRadio1">Invidual</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="nivel" id="inlineRadio2" value="General">
+                            <label style="font-weight: 200;" class="form-check-label" for="inlineRadio2">General</label>
                         </div>
                     </div>
                 </div>

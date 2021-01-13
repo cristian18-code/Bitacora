@@ -81,7 +81,7 @@
             <tbody>
                 <?php foreach ($qsqlDatos as $dato) { ?>
                     <tr>
-                        <form action="registro_ac.php" method="post">
+                        <form action="respuesta_ticket.php" method="post">
                             <td><?php echo $dato['id_ticket']; ?></td>
                             <td><?php echo $dato['username']?></td>
                             <td><?php echo $dato['nombre_tipificacion']?></td>
