@@ -8,6 +8,7 @@
         require('../../config/db.php');
         require('../../config/conexion.php');
 
+        $registro = $_POST['id'];
         $userReporta = $_POST['user'];
         $fechaReporte = $_POST['dia'];
         $horaReporte = $_POST['hora'];
@@ -54,15 +55,6 @@
                                             '$nombre_archivo',
                                             '$prioridad',
                                             '$nivel')";
-
-                $insertQslq = $con-> query($insertSsql);
-
-                if($insertQslq){
-                    $alert='<p class="msg_save"> Ticket creado Correctamente</p>'; 
-                }else{
-                    $alert='<p class="msg_error"> error al crear el Ticket</p>';    
-                }
-
             } else {
                 $alert='<p class="msg_error"> error al crear el Ticket</p>';
             }
@@ -85,19 +77,26 @@
                                             '$tipo_incidencia',
                                             '$detalle',
                                             '$prioridad',
-                                            '$nivel')";
+                                            '$nivel')";            
+        }
 
-            $insertQslq = $con-> query($insertSsql);   
+        $insertQslq = $con -> query($insertSsql);
             
-            if($insertQslq){
-                $alert='<p class="msg_save"> Ticket creado Correctamente</p>'; 
-            }else{
-                $alert='<p class="msg_error"> error al crear el Ticket</p>';    
-            }
+        if($insertQslq){
+
+?>
+            <script>
+                window.location.href = 'mailto:soportecontactcenter@medcontactcenter.com.co?subject=Se ha registrado el ticket N° <?php echo $registro ?>&body=Cordial Saludo%0D%0A%0D%0A<?php echo $detalle ?>%0D%0A%0D%0ACordialmente:';
+            </script>
+<?php
+            $alert='<p class="msg_save"> Ticket N°'. $registro .' creado Correctamente</p>';
+        }else{
+            $alert='<p class="msg_error"> error al crear el Ticket</p>';    
         }
            
-        echo $alert;
         mysqli_close($con);
     }
+
+    echo $alert;
 
 ?>

@@ -51,9 +51,12 @@
         <h1>Solicitudes Soporte Contact</h1>
         <hr>
         <div class="alerta"></div>
-            <input type="text" name="id" id="id" readonly value="Ticket N° <?php echo ($id+1); ?>"> <!-- Muestra el numero del registro a crear -->
-            <br>
             <form enctype="multipart/form-data" method="post" name="formTicket" id="formTicket">
+                <div class="form-group" style="text-align: center;">
+                <label for="id" style="font-weight: 700;">Ticket N°</label>
+                <input type="text" class="form-control" name="id" id="id" readonly value="<?php echo ($id+1); ?>"> <!-- Muestra el numero del registro a crear -->
+                </div>
+                <br>
                 <div id="encabezado" class="form-group">
                     <input type="text" name="dia" id="dia" value="" readonly> <!-- Muestra el dia actual -->
                     <img src="media/images/mantenimiento.png" alt="anadir" width="80px">
@@ -168,7 +171,7 @@
                 url: "sistema/logica/contadorTicket.php",
                 data: num,
                 success: function(data) {
-                    $('#id').val("Ticket N° "+(Number(data)+1));
+                    $('#id').val((Number(data)+1));
                 }
             });
         }
