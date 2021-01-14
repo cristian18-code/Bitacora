@@ -56,7 +56,7 @@
                                             '$prioridad',
                                             '$nivel')";
             } else {
-                $alert='<p class="msg_error"> error al crear el Ticket</p>';
+                $alert='<p class="msg_error"> error al guardar el archivo</p>';
             }
 
         } else {
@@ -86,7 +86,7 @@
 
 ?>
             <script>
-                window.location.href = 'mailto:soportecontactcenter@medcontactcenter.com.co?subject=Se ha registrado el ticket N° <?php echo $registro ?>&body=Cordial Saludo%0D%0A%0D%0A<?php echo $detalle ?>%0D%0A%0D%0ACordialmente:';
+                window.location.href = 'mailto:soportecontactcenter@medcontactcenter.com.co?subject=Se ha registrado el ticket N° <?php echo $registro ?>&body=Cordial Saludo%0D%0A%0D%0A<?php echo $detalle ?>';
             </script>
 <?php
             $alert='<p class="msg_save"> Ticket N°'. $registro .' creado Correctamente</p>';

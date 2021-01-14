@@ -89,7 +89,7 @@
                             <td><?php echo $dato['prioridad']?></td>
                             <input type="hidden" id="estado" value="<?php echo $dato['cierreTicket']; ?>"> <!-- para dar color a la fila-->
                             <input type="hidden" name="ticket" id="ticket" value="<?php echo $dato['id_ticket'];?>"> <!-- numero de registro -->
-                            <td><input type="submit" value="<?php echo $boton;?>" class="btn btn-primary"></td> <!-- Envia los tres datos anteriores -->
+                            <td><input type="submit" value="<?php echo $boton;?>" class="btn btn-light"></td> <!-- Envia los tres datos anteriores -->
                         </form>
                     </tr>
                 <?php } ?>
