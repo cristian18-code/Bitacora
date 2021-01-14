@@ -61,15 +61,15 @@ section table tr th{
 }
 
 table tr#sinGestion {
-    background-color:#F1948A ;
+    background-color: #F5B7B1 ;
 }
 
 table tr#pendiente {
-    background-color:#F9E79F;
+    background-color:#FCF3CF;
 }
 
 table tr#gestionado {
-    background-color: #ABEBC6;
+    background-color: #D5F5E3;
 }
 .adicional{
     width: 100%;

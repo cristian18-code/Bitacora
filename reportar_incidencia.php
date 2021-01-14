@@ -150,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-                <center><button type="submit" class="btn btn-primary" id="btnEnviar" name="btnEnviar">Reportar</button></center>
+                <center><input type="submit" class="btn btn-primary" id="btnEnviar" name="btnEnviar" value="Reportar"></center>
             </form>
         </div>            
 

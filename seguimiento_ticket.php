@@ -27,7 +27,7 @@
 <html lang="es">
 <head>
 <!-- Estilos css -->
-    <link rel="stylesheet" href="media/styles/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="media/styles/libs/bootstrap5.min.css">
     <link rel="stylesheet" href="media/styles/header.css">
     <link rel="stylesheet" href="media/icons/style.css">
     <link rel="stylesheet" href="media/styles/seguimiento_ticket.css">

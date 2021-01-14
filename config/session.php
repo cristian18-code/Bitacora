@@ -25,8 +25,5 @@ $row = mysqli_fetch_assoc($ses_sql);
 if(!isset($login_session)){
         mysqli_close($con); // Cerrando la conexion
         header('Location: index.php'); // Redirecciona a la pagina de inicio
-if ($login_session != $_SESSION['username']) {
-        header('Location: config/logout.php'); // Redirecciona a la pagina de inicio
-}
 }
 ?>
