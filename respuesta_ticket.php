@@ -3,7 +3,7 @@
     include('config/session.php');
     include('config/conexion.php');
 
-    if ($_SESSION['rol'] != 'Administrador' && $_SESSION['rol'] != 'Supervisor') {
+    if ($_SESSION['rols'] != 'Administrador' && $_SESSION['rols'] != 'Supervisor') {
         header("location: principal.php");
     }
 
@@ -88,7 +88,7 @@
     <div id="formulario_reportar">        
         <h1>Solicitudes Soporte Contact</h1>
         <hr>
-        <?php if ($_SESSION['rol'] == 'Administrador') { ?><div class="alerta"></div> <?php } ?>
+        <?php if ($_SESSION['rols'] == 'Administrador') { ?><div class="alerta"></div> <?php } ?>
             <form enctype="multipart/form-data" method="post" name="formRespuesta" id="formRespuesta">
                 <div class="form-group" style="text-align: center;">
                 <label for="id" style="font-weight: 700;">Ticket N°</label>
@@ -217,7 +217,7 @@
                 <div class="form-group row" id="cont-respuesta">
                     <label for="respuesta" class="col-sm-4 col-form-label">Respuesta soporte</label>
                     <div class="col-sm-8">
-                        <textarea name="respuesta" id="respuesta" style="resize:none;" class="form-control"<?php if ($_SESSION['rol'] == 'Administrador' && $dato['cierreTicket'] != 'Si') { ?> autofocus required<?php } else { ?> readonly<?php } ?>><?php if ($dato['cierreTicket'] != 'No' && $dato['respuestaContact'] != NULL) { echo $dato['respuestaContact']; } ?></textarea>
+                        <textarea name="respuesta" id="respuesta" style="resize:none;" class="form-control"<?php if ($_SESSION['rols'] == 'Administrador' && $dato['cierreTicket'] != 'Si') { ?> autofocus required<?php } else { ?> readonly<?php } ?>><?php if ($dato['cierreTicket'] != 'No' && $dato['respuestaContact'] != NULL) { echo $dato['respuestaContact']; } ?></textarea>
                     </div>
                 </div>
 
@@ -234,7 +234,7 @@
                 </div>
                 <?php } ?>
                 
-                <?php if ($_SESSION['rol'] == 'Administrador' && $dato['cierreTicket'] != 'Si') { ?>
+                <?php if ($_SESSION['rols'] == 'Administrador' && $dato['cierreTicket'] != 'Si') { ?>
                 <div class="form-group row" id="cont-archivo">
                     <label for="archivo" class="col-sm-4 col-form-label">Adjuntar</label>
                     <div class="col-sm-8">
@@ -243,7 +243,7 @@
                 </div>
                 <?php } ?>
 
-                <?php if ($_SESSION['rol'] == 'Administrador' && $dato['cierreTicket'] != 'Si') { ?>
+                <?php if ($_SESSION['rols'] == 'Administrador' && $dato['cierreTicket'] != 'Si') { ?>
                 <div class="form-group row" id="cont-cerrarTicket">
                     <label for="cerrarTicket" class="col-sm-4 col-form-label">¿Cerrar Ticket?</label>
                     <div class="col-sm-8">
@@ -256,7 +256,7 @@
                 </div>
                 <?php } ?>
 
-                <?php if ($_SESSION['rol'] == 'Administrador' && $dato['cierreTicket'] != 'Si') { ?>   
+                <?php if ($_SESSION['rols'] == 'Administrador' && $dato['cierreTicket'] != 'Si') { ?>   
                     <center><input type="submit" class="btn btn-primary" id="btn_enviarRespuesta" name="btn_enviarRespuesta" value="Enviar"></center>
                 <?php } ?>
             <?php } ?>

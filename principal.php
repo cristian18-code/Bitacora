@@ -2,7 +2,7 @@
     include('config/session.php');
 
     /* Trae el numero de tickets pendientes */
-    if ($_SESSION['rol'] == 'Administrador') { 
+    if ($_SESSION['rols'] == 'Administrador') { 
 
         $traerDatos = "SELECT count(*) from tickets WHERE cierreTicket != 'Si'";
         $ver = $con->query($traerDatos) or die ("No se obtuvieron datos en la consulta");
@@ -11,7 +11,7 @@
             $tickets = $row[0];
         }
 
-    } else if ($_SESSION['rol'] == 'Supervisor') {
+    } else if ($_SESSION['rols'] == 'Supervisor') {
         
         $traerDatos = "SELECT count(*) from tickets
                                         WHERE tickets.cierreTicket != 'Si' AND id_quienReporta = ".$_SESSION['idUser']."";
@@ -98,7 +98,7 @@
 
         </div> 
 
-        <?php if ($_SESSION['rol'] == 'Administrador') { ?>
+        <?php if ($_SESSION['rols'] == 'Administrador') { ?>
         <a href="#">
 
             <div class="box box3">
@@ -116,7 +116,7 @@
 
         </div> 
 
-        <?php if ($_SESSION['rol'] == 'Administrador') { ?>
+        <?php if ($_SESSION['rols'] == 'Administrador') { ?>
         <a href="crear_usuario.php">
 
             <div class="box box4">
@@ -134,7 +134,7 @@
 
         </div> 
 
-        <?php if ($_SESSION['rol'] == 'Administrador') { ?>
+        <?php if ($_SESSION['rols'] == 'Administrador') { ?>
         <a href="listado_usuarios.php">
 
             <div class="box box5">
@@ -161,7 +161,7 @@
 <script>
     $(document).ready(function() {	
         function update(){
-            var roles = '<?php echo $_SESSION['rol'] ?>';
+            var roles = '<?php echo $_SESSION['rols'] ?>';
             var user = '<?php echo $_SESSION['idUser'] ?>';
             var param = {
                 rol: roles,
@@ -180,4 +180,14 @@
         setInterval(update, 10000);
     });
 </script>
+<script src="sistema/js/sweetalert2.js"></script>
+	<script>
+        Swal.fire({
+        title: "Bienvenido/a!",
+        html:'<h2 class="user"><?php echo $_SESSION["rol"]?><?php echo ':'?> <?php echo $_SESSION["nombre"]?></h2>',
+        timer:3000,
+        timerProgressBar:true,
+        confirmButtonText: 'Aceptar'
+        });
+    </script>
 </html>

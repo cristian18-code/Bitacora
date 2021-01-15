@@ -3,7 +3,7 @@
     include('config/session.php');
     include('config/conexion.php');
 
-    if($_SESSION['rol'] != 'Administrador')
+    if($_SESSION['rols'] != 'Administrador')
     {
         header("location: principal.php");
     }

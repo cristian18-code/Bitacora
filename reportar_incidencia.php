@@ -2,7 +2,7 @@
     include('config/session.php');
     include('config/conexion.php');
 
-    if ($_SESSION['rol'] != 'Administrador' && $_SESSION['rol'] != 'Supervisor') {
+    if ($_SESSION['rols'] != 'Administrador' && $_SESSION['rols'] != 'Supervisor') {
         header("location: principal.php");
     }
 

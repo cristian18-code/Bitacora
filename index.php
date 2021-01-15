@@ -1,7 +1,7 @@
 <?php
 include('sistema/logica/login.php'); // Incluye archivo del login
  
-if(isset($_SESSION['active'])){ // Valida si ya hay una sesion iniciada
+if(isset($_SESSION['actives'])){ // Valida si ya hay una sesion iniciada
 header("location: ./principal.php");
 }
 ?>
@@ -32,11 +32,9 @@ header("location: ./principal.php");
 				<input type="password" placeholder="Contraseña" name="password" required>
 				<input name="submit" type="submit" value="Ingresar">
 			</form>
-			<div class="clear"> </div>
+			<div class="clear"></div>
 				<span><?php echo $error; ?></span>
-			</div>
-			
-			
+			</div>			
 		</div>
 	</div>
 </div>

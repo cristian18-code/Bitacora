@@ -3,7 +3,7 @@
     include('config/session.php');
     include('config/conexion.php');
 
-    if ($_SESSION['rol'] != 'Administrador') {
+    if ($_SESSION['rols'] != 'Administrador') {
         header("location: principal.php");
     }    
     
@@ -17,7 +17,7 @@
             $nombre = $_POST['nombre'];
             $usuario = strtolower($_POST['usuario']);
             $clave = sha1($_POST['contrasena']);
-            $rol = $_POST['rol'];
+            $rol = $_POST['rols'];
 
             $validarQsql = $con->query("SELECT * FROM usuarios WHERE username = '$usuario' ");
             $result = mysqli_fetch_array($validarQsql);

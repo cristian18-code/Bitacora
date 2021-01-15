@@ -23,9 +23,9 @@
             $query=mysqli_query($con,$sql);
             $counter=mysqli_num_rows($query);
             if ($counter==1){
-                $_SESSION['active'] = true;
+                $_SESSION['actives'] = true;
                 $_SESSION['username']=$username; // Iniciando la sesion
-                header("location: ./principal.php"); // Redireccionando a la pagina profile.php
+                header("location: ./principal.php"); // Redireccionando a la pagina pincipal.php
                 
                 
             } else {
