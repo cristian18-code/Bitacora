@@ -17,7 +17,7 @@
             $nombre = $_POST['nombre'];
             $usuario = strtolower($_POST['usuario']);
             $clave = sha1($_POST['contrasena']);
-            $rol = $_POST['rols'];
+            $rol = $_POST['rol'];
 
             $validarQsql = $con->query("SELECT * FROM usuarios WHERE username = '$usuario' ");
             $result = mysqli_fetch_array($validarQsql);

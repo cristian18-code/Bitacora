@@ -184,7 +184,7 @@
 	<script>
         Swal.fire({
         title: "Bienvenido/a!",
-        html:'<h2 class="user"><?php echo $_SESSION["rol"]?><?php echo ':'?> <?php echo $_SESSION["nombre"]?></h2>',
+        html:'<h2 class="user"><?php echo $_SESSION["rols"]?><?php echo ':'?> <?php echo $_SESSION["nombre"]?></h2>',
         timer:3000,
         timerProgressBar:true,
         confirmButtonText: 'Aceptar'
