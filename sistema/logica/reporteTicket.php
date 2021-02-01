@@ -8,6 +8,19 @@ $fecha2=$_POST['fecha2'];
 $hora1=$_POST['hora1'];
 $hora2=$_POST['hora2'];
 
+
+$registro = $_POST['id'];
+$userReporta = $_POST['user'];
+$fechaReporte = $_POST['dia'];
+$horaReporte = $_POST['hora'];
+$area = $_POST['area'];
+$tipo_reporte = $_POST['tipo_reporte'];
+
+$tipo_incidencia = $_POST['tipo_incidencia'];
+$detalle = $_POST['detalle'];
+$prioridad = $_POST['prioridad'];
+$nivel = $_POST['nivel'];
+
 if(isset($_POST['generar_reporte']))
 {
 	// NOMBRE DEL ARCHIVO Y CHARSET
@@ -21,7 +34,7 @@ if(isset($_POST['generar_reporte']))
 						   'Tipo Incidencia', 'Detalle Soporte', 'Prioridd', 'Tipicacion TI', 'Fecha Respuesta', 'Hora Respuesta','Cierre Tickets', 'Incidenicia Nivel', 
 						   'Respuesta TI'));
 	// QUERY PARA CREAR EL REPORTE
-	$reporteCsv=$conectar->query("SELECT id_ticket,
+	$reporteCsv=$conectar->query("SELECT (id_ticket,
 										 id_area_solicitante,
 										 id_quienReporta,
 										 fechaReporte,
@@ -35,7 +48,17 @@ if(isset($_POST['generar_reporte']))
 										 horaRespuesta,
 										 cierreTicket,
 										 incidenciaNivel,
-										 idquienResponde
+										 idquienResponde)
+										 VALUES('$userReporta',
+                                         '$area',
+                                         STR_TO_DATE('$fechaReporte', '%d/%m/%Y'),
+                                         '$horaReporte',
+                                         '$tipo_reporte',
+                                         '$tipo_incidencia',
+                                         '$detalle',
+                                         '$nombre_archivo',
+                                         '$prioridad',
+                                         '$nivel')
 										 FROM tickets where fechaReporte BETWEEN '$fecha1' AND '$fecha2' AND horaReporte BETWEEN '$hora1' AND '$hora2' ORDER BY id_ticket");
 
 	foreach ($reporteCsv as $filaR) {

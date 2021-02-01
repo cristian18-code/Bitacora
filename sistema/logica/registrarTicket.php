@@ -30,7 +30,8 @@
         
             $archivo = (isset($_FILES['archivo'])) ? $_FILES['archivo'] : null;
             $nombre_archivo = $archivo['name'];
-            $ruta_destino_archivo = "archivos/{$archivo['name']}";
+            $nombre_archivo = strtolower($nombre_archivo);
+            $ruta_destino_archivo = "archivos/{$nombre_archivo}";
             $archivo_ok = move_uploaded_file($archivo['tmp_name'], "../../$ruta_destino_archivo");
             
             if ($archivo_ok) {

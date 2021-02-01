@@ -222,7 +222,7 @@
                 </div>
 
                 <?php if ($dato['adjuntoSoporte'] != NULL ) { ?>
-                    <center><p><a href="archivos/<?php echo $dato['adjuntoSoporte']; ?>" target="_blank">Ver adjunto de respuesta</a></p></center>
+                    <center><p><a href="archivos/archivosSoporte/<?php echo $dato['adjuntoSoporte']; ?>" target="_blank">Ver adjunto de Soporte</a></p></center>
                 <?php } ?>
 
                 <?php if ($dato['cierreTicket'] != 'No') { ?>    

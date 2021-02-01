@@ -1,0 +1,11 @@
+form{
+    margin: auto;
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 10px;
+    border:solid #000 1px;
+}
+form input{
+    float: right;
+    height: 10px;
+}

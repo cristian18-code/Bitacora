@@ -70,7 +70,7 @@
                         <select name="area" id="area" class="form-control" required>
                             <option value="" hidden>Selecciona una opcion</option>
                         <!-- consulta traer datos de la base -->
-                        <?php $areaSsql = "SELECT id_tipificacion, nombre_tipificacion FROM tipificaciones WHERE grupo_tipificacion = 'area'";
+                        <?php $areaSsql = "SELECT id_tipificacion, nombre_tipificacion FROM tipificaciones WHERE grupo_tipificacion = 'area' ORDER BY nombre_tipificacion ASC";
                                 $areaQsql = $con -> query($areaSsql);
                         ?>
                         <!-- ciclo para mostrar las areas -->
@@ -89,7 +89,7 @@
                         <select name="tipo_reporte" id="tipo_reporte" class="form-control" onchange="mostrarIncidencia(this)" required>
                             <option value="" hidden>Selecciona una opcion</option>
                         <!-- consulta traer datos de la base -->
-                        <?php $areaSsql = "SELECT id_tipificacion, nombre_tipificacion FROM tipificaciones WHERE grupo_tipificacion = 'reporte'";
+                        <?php $areaSsql = "SELECT id_tipificacion, nombre_tipificacion FROM tipificaciones WHERE grupo_tipificacion = 'reporte' ORDER BY nombre_tipificacion ASC";
                                 $areaQsql = $con -> query($areaSsql);
                         ?>
                         <!-- ciclo para mostrar las areas -->

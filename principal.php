@@ -99,7 +99,7 @@
         </div> 
 
         <?php if ($_SESSION['rols'] == 'Administrador') { ?>
-        <a href="#">
+        <a href="descargarReporteTicket.php">
 
             <div class="box box3">
 

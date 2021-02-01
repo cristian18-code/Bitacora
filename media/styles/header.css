@@ -187,7 +187,7 @@ nav li ul a:hover{
 }
 
 header, nav ul li {
-	z-index: 10000;
+	z-index: 10;
 }
 /*****************************************************************/
 /* barra del scroll*/
